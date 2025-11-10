@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Materials Generator</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>AI Materials Generator</h1>
+            <p>Create professional bios, project summaries, and learning reflections with AI</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="bio">
+                <span class="icon">👤</span>
+                Professional Bio
+            </button>
+            <button class="tab-btn" data-tab="project">
+                <span class="icon">📄</span>
+                Project Summary
+            </button>
+            <button class="tab-btn" data-tab="reflection">
+                <span class="icon">📚</span>
+                Learning Reflection
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Input Panel -->
+            <div class="panel input-panel">
+                <h2>Input Details</h2>
+
+                <!-- Bio Form -->
+                <form id="bio-form" class="form-content active">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" id="bio-name" placeholder="e.g., Jane Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Skills & Expertise *</label>
+                        <textarea id="bio-skills" rows="3" placeholder="e.g., Full-stack development, React, Node.js"
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Key Achievements</label>
+                        <textarea id="bio-achievements" rows="3"
+                            placeholder="e.g., Led team of 5 developers"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Tone</label>
+                        <select id="bio-tone">
+                            <option value="professional">Professional</option>
+                            <option value="friendly">Friendly</option>
+                            <option value="formal">Formal</option>
+                            <option value="creative">Creative</option>
+                        </select>
+                    </div>
+                </form>
+
+                <!-- Project Form -->
+                <form id="project-form" class="form-content">
+                    <div class="form-group">
+                        <label>Project Title *</label>
+                        <input type="text" id="project-title" placeholder="e.g., E-Commerce Platform" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Description *</label>
+                        <textarea id="project-description" rows="3" placeholder="Describe the project..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Technologies Used</label>
+                        <input type="text" id="project-technologies" placeholder="e.g., React, Node.js, MongoDB">
+                    </div>
+                    <div class="form-group">
+                        <label>Key Outcomes & Results</label>
+                        <textarea id="project-outcomes" rows="2"
+                            placeholder="e.g., Increased engagement by 50%"></textarea>
+                    </div>
+                </form>
+
+                <!-- Reflection Form -->
+                <form id="reflection-form" class="form-content">
+                    <div class="form-group">
+                        <label>Topic/Experience *</label>
+                        <input type="text" id="reflection-topic" placeholder="e.g., Learning React Hooks" required>
+                    </div>
+                    <div class="form-group">
+                        <label>What You Did *</label>
+                        <textarea id="reflection-experience" rows="3" placeholder="Describe the activity..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Key Learnings</label>
+                        <textarea id="reflection-learnings" rows="2" placeholder="What did you learn?"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Future Applications</label>
+                        <textarea id="reflection-future" rows="2" placeholder="How will you apply this?"></textarea>
+                    </div>
+                </form>
+
+                <button id="generate-btn" class="generate-btn">Generate Content</button>
+            </div>
+
+            <!-- Output Panel -->
+            <div class="panel output-panel">
+                <div class="output-header">
+                    <h2>Generated Output</h2>
+                    <button id="copy-btn" class="copy-btn" style="display: none;">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
+                <div id="output-area" class="output-content">
+                    <div class="placeholder">
+                        <span class="placeholder-icon">📄</span>
+                        <p>Fill in the details and click "Generate Content" to see your AI-generated output here.</p>
+                    </div>
+                </div>
+                <div id="loading-spinner" class="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Generating content...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>💡 Tip: The more detailed your input, the better the AI-generated content will be!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
