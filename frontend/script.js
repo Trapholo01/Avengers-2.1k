@@ -24,17 +24,17 @@ tabButtons.forEach(button => {
 
 function switchTab(tabName) {
     currentTab = tabName;
-
+    
     // Update active tab button
     tabButtons.forEach(btn => {
         btn.classList.toggle('active', btn.dataset.tab === tabName);
     });
-
+    
     // Update active form
     forms.forEach(form => {
         form.classList.toggle('active', form.id === `${tabName}-form`);
     });
-
+    
     // Clear output
     clearOutput();
 }
@@ -42,20 +42,20 @@ function switchTab(tabName) {
 // Generate Content
 generateBtn.addEventListener('click', async () => {
     if (isGenerating) return;
-
+    
     const formData = getFormData();
     if (!validateForm(formData)) {
-        showError('Please fill in all required fields.');
+        showError('Please complete all required fields');
         return;
     }
-
+    
     await generateContent(formData);
 });
 
 // Get Form Data
 function getFormData() {
     const data = {};
-
+    
     if (currentTab === 'bio') {
         data.name = document.getElementById('bio-name').value.trim();
         data.skills = document.getElementById('bio-skills').value.trim();
@@ -72,7 +72,7 @@ function getFormData() {
         data.learnings = document.getElementById('reflection-learnings').value.trim();
         data.future = document.getElementById('reflection-future').value.trim();
     }
-
+    
     return data;
 }
 
@@ -91,33 +91,33 @@ function validateForm(data) {
 // Generate Prompt
 function generatePrompt(type, data) {
     const prompts = {
-        bio: `Create a professional bio for ${data.name || 'a professional'}.
+        bio: `Create a professional biography for ${data.name || 'a professional individual'}.
 
-Skills: ${data.skills || 'Not specified'}
-Achievements: ${data.achievements || 'Not specified'}
-Tone: ${data.tone}
+Professional Skills: ${data.skills || 'Not specified'}
+Career Achievements: ${data.achievements || 'Not specified'}
+Writing Style: ${data.tone}
 
-Write a compelling 150-200 word professional bio that highlights their expertise and accomplishments. Make it engaging and suitable for LinkedIn or a professional website.`,
+Generate a professional 150-200 word biography that highlights expertise, experience, and accomplishments. Maintain a formal tone appropriate for professional networking platforms and corporate profiles.`,
+        
+        project: `Create a comprehensive project summary with the following details:
 
-        project: `Create a professional project summary with the following details:
-
-Project Title: ${data.title || 'Untitled Project'}
-Description: ${data.description || 'Not specified'}
-Technologies Used: ${data.technologies || 'Not specified'}
+Project Title: ${data.title || 'Professional Project'}
+Project Description: ${data.description || 'Not specified'}
+Technologies Utilized: ${data.technologies || 'Not specified'}
 Key Outcomes: ${data.outcomes || 'Not specified'}
 
-Write a clear, concise project summary (200-250 words) that explains the project's purpose, technical approach, and impact. Structure it professionally with an overview, technical details, and results.`,
+Develop a detailed 200-250 word project summary that clearly outlines project objectives, technical approach, implementation details, and measurable outcomes. Structure the content professionally with clear sections.`,
+        
+        reflection: `Compose a professional learning reflection based on:
 
-        reflection: `Write a thoughtful learning reflection based on:
+Learning Topic: ${data.topic || 'Not specified'}
+Learning Experience: ${data.experience || 'Not specified'}
+Key Insights: ${data.learnings || 'Not specified'}
+Practical Applications: ${data.future || 'Not specified'}
 
-Topic/Experience: ${data.topic || 'Not specified'}
-What I Did: ${data.experience || 'Not specified'}
-Key Learnings: ${data.learnings || 'Not specified'}
-Future Applications: ${data.future || 'Not specified'}
-
-Create a 250-300 word reflection that demonstrates deep thinking about the learning experience, personal growth, and future application. Use a reflective yet professional tone.`
+Create a 250-300 word reflective analysis that demonstrates critical thinking about the learning process, skill development, and professional growth. Maintain a formal, analytical tone appropriate for professional development documentation.`
     };
-
+    
     return prompts[type];
 }
 
@@ -125,16 +125,16 @@ Create a 250-300 word reflection that demonstrates deep thinking about the learn
 async function generateContent(formData) {
     isGenerating = true;
     generateBtn.disabled = true;
-    generateBtn.textContent = 'Generating...';
-
+    generateBtn.textContent = 'Generating Content...';
+    
     // Show loading
     outputArea.style.display = 'none';
     loadingSpinner.style.display = 'flex';
     copyBtn.style.display = 'none';
-
+    
     try {
         const prompt = generatePrompt(currentTab, formData);
-
+        
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
@@ -148,26 +148,26 @@ async function generateContent(formData) {
                 ]
             })
         });
-
+        
         if (!response.ok) {
             throw new Error(`API Error: ${response.status}`);
         }
-
+        
         const data = await response.json();
         const generatedText = data.content
             .filter(item => item.type === 'text')
             .map(item => item.text)
             .join('\n');
-
+        
         displayOutput(generatedText);
-
+        
     } catch (error) {
         console.error('Generation error:', error);
-        showError('Failed to generate content. Please check your inputs and try again.');
+        showError('Content generation failed. Please verify your inputs and attempt again. Ensure API credentials are properly configured.');
     } finally {
         isGenerating = false;
         generateBtn.disabled = false;
-        generateBtn.textContent = 'Generate Content';
+        generateBtn.textContent = 'Generate Professional Content';
         loadingSpinner.style.display = 'none';
         outputArea.style.display = 'block';
     }
@@ -175,8 +175,16 @@ async function generateContent(formData) {
 
 // Display Output
 function displayOutput(text) {
-    outputArea.innerHTML = `<p>${text}</p>`;
+    // Format the text with proper paragraphs
+    const formattedText = text.split('\n\n').map(paragraph => 
+        `<p>${paragraph}</p>`
+    ).join('');
+    
+    outputArea.innerHTML = formattedText;
     copyBtn.style.display = 'flex';
+    
+    // Smooth scroll to output
+    outputArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // Show Error
@@ -190,25 +198,50 @@ function showError(message) {
 function clearOutput() {
     outputArea.innerHTML = `
         <div class="placeholder">
-            <span class="placeholder-icon">📄</span>
-            <p>Fill in the details and click "Generate Content" to see your AI-generated output here.</p>
+            <div class="placeholder-icon">📄</div>
+            <p>Complete the input form and generate professional content for your requirements</p>
         </div>
     `;
     copyBtn.style.display = 'none';
 }
 
 // Copy to Clipboard
-copyBtn.addEventListener('click', () => {
+copyBtn.addEventListener('click', async () => {
     const text = outputArea.textContent.trim();
-    navigator.clipboard.writeText(text).then(() => {
+    try {
+        await navigator.clipboard.writeText(text);
+        
         const copyText = copyBtn.querySelector('.copy-text');
-        copyText.textContent = 'Copied!';
+        copyText.textContent = 'Content Copied';
         copyBtn.classList.add('copied');
-
+        
         setTimeout(() => {
-            copyText.textContent = 'Copy';
+            copyText.textContent = 'Copy Content';
             copyBtn.classList.remove('copied');
         }, 2000);
+    } catch (err) {
+        console.error('Failed to copy text: ', err);
+    }
+});
+
+// Add input validation styling
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('input[required], textarea[required]');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                this.style.borderColor = '#dc2626';
+            } else {
+                this.style.borderColor = '#e0e0e0';
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                this.style.borderColor = '#e0e0e0';
+            }
+        });
     });
 });
 
