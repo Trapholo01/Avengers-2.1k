@@ -1,18 +1,18 @@
 
-# 🚀 AI Portfolio Assistant
+#  AI Portfolio Assistant
 
-### 🧠 Overview
+###  Overview
 
 **AI Portfolio Assistant** is a web-based tool that helps users generate professional content for their portfolios using a **Generative AI API (Gemini)**.  
 It can create:
 
-* 💼 Professional Bios  
-* 🧩 Project Summaries  
-* 🎓 Learning Reflections  
+*  Professional Bios  
+*  Project Summaries  
+*  Learning Reflections  
 
 Built collaboratively by **Team AvengersAI** using **JavaScript** for the backend and **HTML, CSS, JavaScript** for the frontend.
 
-🔗 **GitHub Repository:** [Avengers-2.1k](https://github.com/Trapholo01/Avengers-2.1k)
+ **GitHub Repository:** [Avengers-2.1k](https://github.com/Trapholo01/Avengers-2.1k)
 
 ---
 
@@ -143,8 +143,8 @@ npx live-server frontend
 
 ---
 
-**Team AvengersAI © 2025**
+**Team SyntaxNova © 2025**
 Members: Lerato Matamela · Thelezinhle Buthelezi · Thato Rapholo
-💡 “Building intelligent tools, one sprint at a time.”
+ “Building intelligent tools, one sprint at a time.”
 
 
