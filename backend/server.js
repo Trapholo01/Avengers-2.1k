@@ -15,7 +15,7 @@ let generatedContents = [];
 // ✅ ADDED: Root route to fix "Cannot GET /"
 app.get('/', (req, res) => {
     res.json({
-        message: '🚀 AI Content Generator Backend API is running!',
+        message: ' AI Content Generator Backend API is running!',
         version: '1.0.0',
         aiProvider: 'Google Gemini',
         timestamp: new Date().toISOString(),
@@ -40,7 +40,7 @@ app.get('/api/health', (req, res) => {
 // Generate content endpoint
 app.post('/api/generate', async (req, res) => {
     try {
-        console.log('📨 Received generation request:', req.body);
+        console.log(' Received generation request:', req.body);
 
         const { type, data } = req.body;
 
@@ -60,7 +60,7 @@ app.post('/api/generate', async (req, res) => {
             aiProvider = 'Google Gemini';
             console.log('✅ Content generated with Gemini');
         } catch (geminiError) {
-            console.log('⚠️ Gemini failed, using mock data:', geminiError.message);
+            console.log(' Gemini failed, using mock data:', geminiError.message);
             generatedContent = generateMockContent(type, data);
             aiProvider = 'Mock Data (Gemini Failed)';
         }
@@ -85,7 +85,7 @@ app.post('/api/generate', async (req, res) => {
         });
 
     } catch (error) {
-        console.error('❌ Error:', error);
+        console.error(' Error:', error);
         res.status(500).json({
             success: false,
             error: 'Failed to generate content'
@@ -212,14 +212,14 @@ app.get('/api/stats', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`\n✨ ============================================== ✨`);
-    console.log(`🚀 AI Content Generator Backend Started!`);
-    console.log(`🤖 AI Provider: Google Gemini`);
-    console.log(`📍 Server running on: http://localhost:${PORT}`);
-    console.log(`⏰ Started at: ${new Date().toLocaleString()}`);
-    console.log(`✨ ============================================== ✨\n`);
+    console.log(`\n ============================================== `);
+    console.log(` AI Content Generator Backend Started!`);
+    console.log(` AI Provider: Google Gemini`);
+    console.log(` Server running on: http://localhost:${PORT}`);
+    console.log(` Started at: ${new Date().toLocaleString()}`);
+    console.log(` ============================================== \n`);
 
-    console.log('📚 Available Endpoints:');
+    console.log(' Available Endpoints:');
     console.log('   ✅ GET  /              - API information');
     console.log('   ✅ GET  /api/health    - Server health check');
     console.log('   ✅ POST /api/generate  - Generate content (Gemini)');
@@ -229,14 +229,14 @@ app.listen(PORT, () => {
     // Check Gemini API key
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey || apiKey === 'your_gemini_api_key_here') {
-        console.log('⚠️  WARNING: Gemini API key not configured!');
+        console.log('  WARNING: Gemini API key not configured!');
         console.log('   Using mock data as fallback');
         console.log('   Get free API key: https://aistudio.google.com/app/apikey');
         console.log('   Add to .env file: GEMINI_API_KEY=your_actual_key_here\n');
     } else {
-        console.log('✅ Gemini API key is configured!');
+        console.log(' Gemini API key is configured!');
     }
 
-    console.log('🎯 Test the server: http://localhost:3000');
-    console.log('🔧 Health check: http://localhost:3000/api/health\n');
+    console.log(' Test the server: http://localhost:3000');
+    console.log(' Health check: http://localhost:3000/api/health\n');
 });
