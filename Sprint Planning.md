@@ -10,7 +10,7 @@ It can create:
 * Project Summaries
 * Learning Reflections
 
-Built collaboratively by **Team AvengersAI** using **JavaScript** for the backend and **HTML, CSS, JavaScript** for the frontend.
+Built collaboratively by **Team SyntaxNova** using **JavaScript** for the backend and **HTML, CSS, JavaScript** for the frontend.
 
 🔗 **GitHub Repository:** [Avengers-2.1k](https://github.com/Trapholo01/Avengers-2.1k)
 
@@ -136,7 +136,6 @@ npx live-server frontend
 * Commit frequently with descriptive messages
 * Submit Pull Requests for review
 * Scrum Master merges into `main` after validation
-* Kanban board tracks tasks: To Do → In Progress → Review → Done ✅
 
 ---
 
@@ -163,4 +162,4 @@ npx live-server frontend
 
 **Team SyntaxNova © 2025**
 Members: Lerato Matamela · Thelezinhle Buthelezi · Thato Rapholo
-💡 “Building intelligent tools, one sprint at a time.”
+ “Building intelligent tools, one sprint at a time.”
