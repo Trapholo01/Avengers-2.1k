@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'https://avengers-2-1k-2.onrender.com';
+const API_BASE_URL = 'https://avengers-2-1k-8.onrender.com';
 
 // State Management
 let currentTab = 'bio';
