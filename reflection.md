@@ -5,7 +5,7 @@
 
 The **AI Portfolio Assistant** project is a web-based tool designed to help users generate professional content for their portfolios using the **Gemini Generative AI API**. The tool can create professional bios, project summaries, and learning reflections based on user input.
 
-I contributed as the **Documentation & UI/UX Developer**, responsible for creating wireframes, designing layouts, testing features, and preparing documentation. Our team, **Team SyntaxNova**, also included Lerato Matamela, who acted as Scrum Master and Backend Developer, and Thelezinhle Buthelezi, who served as Frontend Developer.
+I contributed as the **Documentation & UI/UX Developer**, responsible for creating wireframes, designing layouts, testing features, and preparing documentation. Our team, **Team Avengers_2.1k**, also included Lerato Matamela, who acted as Scrum Master and Backend Developer, and Thelezinhle Buthelezi, who served as Frontend Developer.
 
 ---
 
@@ -75,7 +75,7 @@ Overall, this project provided practical experience in building AI-powered appli
 
 ---
 
-**Team AvengersAI © 2025**
+**Team Avengers_2.1k © 2025**
 Members: Lerato Matamela · Thelezinhle Buthelezi · Thato Rapholo
 💡 “Building intelligent tools, one sprint at a time.”
 
