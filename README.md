@@ -142,7 +142,7 @@ npx live-server frontend
 
 ---
 
-**Team SyntaxNova © 2025**
+**Team AvengersAI © 2025**
 Members: Lerato Matamela · Thelezinhle Buthelezi · Thato Rapholo
  “Building intelligent tools, one sprint at a time.”
 
