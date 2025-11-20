@@ -3,137 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Content Generator | AI-Powered Materials</title>
-    <link rel="stylesheet" href="Style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Avengers_2.1k Ai</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>Professional Content Generator</h1>
-            <p>Create professional bios, project summaries, and learning reflections with AI precision</p>
-        </header>
-
-        <!-- Navigation Tabs -->
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="bio">
-                <span class="icon">BIO</span>
-                Professional Biography
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span>Avengers_2.1k Ai</span>
+            </div>
+            
+            <button class="new-chat-btn" onclick="clearChat()">
+                <i class="fas fa-plus"></i>
+                New Chat
             </button>
-            <button class="tab-btn" data-tab="project">
-                <span class="icon">PROJ</span>
-                Project Summary
-            </button>
-            <button class="tab-btn" data-tab="reflection">
-                <span class="icon">REF</span>
-                Learning Reflection
-            </button>
-        </nav>
 
-        <!-- Main Content -->
-        <div class="main-grid">
-            <!-- Input Panel -->
-            <div class="panel input-panel">
-                <h2>Input Details</h2>
-                
-                <!-- Bio Form -->
-                <form id="bio-form" class="form-content active">
-                    <div class="form-group">
-                        <label for="bio-name">Full Name</label>
-                        <input type="text" id="bio-name" placeholder="Enter your full name" required>
+            <div class="content-types">
+                <div class="type-item active" data-type="bio">
+                    <i class="fas fa-user-tie"></i>
+                    <div class="type-info">
+                        <span class="type-title">Professional Bio</span>
+                        <span class="type-desc">Create compelling bios</span>
                     </div>
-                    <div class="form-group">
-                        <label for="bio-skills">Professional Skills</label>
-                        <textarea id="bio-skills" rows="3" placeholder="List your key skills and areas of expertise" required></textarea>
+                </div>
+                <div class="type-item" data-type="project">
+                    <i class="fas fa-code"></i>
+                    <div class="type-info">
+                        <span class="type-title">Project Summary</span>
+                        <span class="type-desc">Detailed project reports</span>
                     </div>
-                    <div class="form-group">
-                        <label for="bio-achievements">Career Achievements</label>
-                        <textarea id="bio-achievements" rows="3" placeholder="Notable accomplishments and career milestones"></textarea>
+                </div>
+                <div class="type-item" data-type="reflection">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="type-info">
+                        <span class="type-title">Learning Reflection</span>
+                        <span class="type-desc">Reflective experiences</span>
                     </div>
-                    <div class="form-group">
-                        <label for="bio-tone">Writing Style</label>
-                        <select id="bio-tone">
-                            <option value="professional">Professional Standard</option>
-                            <option value="executive">Executive Level</option>
-                            <option value="technical">Technical Specialist</option>
-                            <option value="academic">Academic Profile</option>
-                        </select>
-                    </div>
-                </form>
-
-                <!-- Project Form -->
-                <form id="project-form" class="form-content">
-                    <div class="form-group">
-                        <label for="project-title">Project Title</label>
-                        <input type="text" id="project-title" placeholder="Enter project title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-description">Project Description</label>
-                        <textarea id="project-description" rows="3" placeholder="Describe project objectives, scope, and key deliverables" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-technologies">Technologies & Tools</label>
-                        <input type="text" id="project-technologies" placeholder="Technologies, frameworks, and tools utilized">
-                    </div>
-                    <div class="form-group">
-                        <label for="project-outcomes">Results & Impact</label>
-                        <textarea id="project-outcomes" rows="2" placeholder="Quantifiable results and business impact"></textarea>
-                    </div>
-                </form>
-
-                <!-- Reflection Form -->
-                <form id="reflection-form" class="form-content">
-                    <div class="form-group">
-                        <label for="reflection-topic">Learning Topic</label>
-                        <input type="text" id="reflection-topic" placeholder="Subject or skill area developed" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="reflection-experience">Learning Experience</label>
-                        <textarea id="reflection-experience" rows="3" placeholder="Describe the learning activity or experience" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="reflection-learnings">Key Insights</label>
-                        <textarea id="reflection-learnings" rows="2" placeholder="New knowledge, skills, or perspectives gained"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="reflection-future">Practical Applications</label>
-                        <textarea id="reflection-future" rows="2" placeholder="How learnings will be applied professionally"></textarea>
-                    </div>
-                </form>
-
-                <button id="generate-btn" class="generate-btn">
-                    Generate Professional Content
-                </button>
+                </div>
             </div>
 
-            <!-- Output Panel -->
-            <div class="panel output-panel">
-                <div class="output-header">
-                    <h2>Generated Content</h2>
-                    <button id="copy-btn" class="copy-btn" style="display: none;">
-                        <span class="copy-text">Copy Content</span>
+            <div class="history-section">
+                <div class="section-header">
+                    <h3>Recent History</h3>
+                    <button class="clear-history" onclick="clearHistory()">
+                        <i class="fas fa-trash"></i>
                     </button>
                 </div>
-                <div id="output-area" class="output-content">
-                    <div class="placeholder">
-                        <div class="placeholder-icon">📄</div>
-                        <p>Complete the input form and generate professional content for your requirements</p>
-                    </div>
+                <div class="history-list" id="history-list">
+                    <div class="empty-history">No history yet</div>
                 </div>
-                <div id="loading-spinner" class="loading-spinner" style="display: none;">
-                    <div class="spinner"></div>
-                    <p>Generating professional content...</p>
+                <div class="history-actions" id="history-actions" style="display: none;">
+                    <button class="read-more-btn" onclick="toggleHistoryView()">
+                        <i class="fas fa-chevron-down"></i>
+                        Show More
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Provide detailed information for optimal content generation results</p>
-        </footer>
+        <!-- Right Main Area -->
+        <div class="main">
+            <div class="main-header">
+                <h1>AI Content Generator</h1>
+                <div class="header-actions">
+                    <button class="header-btn" onclick="clearCurrentForm()">
+                        <i class="fas fa-eraser"></i>
+                        Clear Form
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <!-- Chat Messages Section -->
+                <div class="chat-section">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="welcome-message">
+                            <div class="welcome-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h2>Welcome to Avengers_2.1k Ai</h2>
+                            <p>I can help you create professional content. Choose a template on the left to get started!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forms Section -->
+                <div class="forms-section">
+                    <!-- Bio Form -->
+                    <div class="content-form active" id="bio-form">
+                        <div class="form-header">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Professional Biography</h3>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" id="bio-name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Professional Skills *</label>
+                                <textarea id="bio-skills" placeholder="List your key skills and expertise..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Achievements</label>
+                                <textarea id="bio-achievements" placeholder="Notable accomplishments and career milestones..."></textarea>
+                            </div>
+                            <button class="generate-btn" onclick="generateContent()">
+                                <i class="fas fa-bolt"></i>
+                                Generate Bio
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project Form -->
+                    <div class="content-form" id="project-form">
+                        <div class="form-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Project Summary</h3>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-group">
+                                <label>Project Title *</label>
+                                <input type="text" id="project-title" placeholder="Enter project title" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Project Description *</label>
+                                <textarea id="project-description" placeholder="Describe project objectives and scope..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Technologies Used</label>
+                                <input type="text" id="project-technologies" placeholder="Technologies, frameworks, and tools utilized">
+                            </div>
+                            <div class="form-group">
+                                <label>Results & Impact</label>
+                                <textarea id="project-outcomes" placeholder="Quantifiable results and business impact"></textarea>
+                            </div>
+                            <button class="generate-btn" onclick="generateContent()">
+                                <i class="fas fa-bolt"></i>
+                                Generate Summary
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reflection Form -->
+                    <div class="content-form" id="reflection-form">
+                        <div class="form-header">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Learning Reflection</h3>
+                        </div>
+                        <div class="form-content">
+                            <div class="form-group">
+                                <label>Learning Topic *</label>
+                                <input type="text" id="reflection-topic" placeholder="Subject or skill area developed" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Learning Experience *</label>
+                                <textarea id="reflection-experience" placeholder="Describe the learning activity or experience..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Key Insights</label>
+                                <textarea id="reflection-learnings" placeholder="New knowledge, skills, or perspectives gained"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Future Applications</label>
+                                <textarea id="reflection-future" placeholder="How learnings will be applied professionally"></textarea>
+                            </div>
+                            <button class="generate-btn" onclick="generateContent()">
+                                <i class="fas fa-bolt"></i>
+                                Generate Reflection
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
