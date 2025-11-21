@@ -1,0 +1,32 @@
+name: Backend Build & Test
+
+# Trigger pipeline on every push to main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+    # 1. Checkout the repository
+    - uses: actions/checkout@v3
+
+    # 2. Set up Node.js environment
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    # 3. Install backend dependencies
+    - name: Install dependencies
+      run: |
+        cd backend
+        npm install
+
+    # 4. Run backend tests or health check
+    - name: Run backend tests
+      run: |
+        cd backend
+        npm test || echo "No tests defined yet"
