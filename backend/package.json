@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "echo 'Build script'",
-    "test": "echo 'Test script'"
+    "test": "echo 'Test script'",  // Added comma here
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
