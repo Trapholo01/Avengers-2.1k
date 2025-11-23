@@ -1,5 +1,11 @@
-// API Configuration
-const API_BASE_URL = 'https://avengersai-fxaeeea5bsbjhqfh.southafricanorth-01.azurewebsites.net';
+// src/config.js
+const config = {
+  apiBaseUrl: process.env.NODE_ENV === 'production' 
+    ? 'avengersai-fxaeeea5bsbjhqfh.southafricanorth-01.azurewebsites.net'
+    : 'http://localhost:3000'
+};
+
+export default config;
 
 // State Management
 let currentTab = 'bio';
