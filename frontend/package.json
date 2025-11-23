@@ -1,8 +1,12 @@
 {
-  "name": "avengers-frontend",
+  "name": "avengersai-frontend",
   "version": "1.0.0",
+  "description": "AvengersAi Frontend",
   "scripts": {
-    "build": "mkdir -p dist && cp -r *.html css/ js/ images/ dist/ || echo 'Build completed'",
-    "dev": "echo 'Open index.html in browser'"
-  }
+    "build": "echo 'Building for Azure' && mkdir build 2>nul || true && copy index.html build 2>nul || cp index.html build && xcopy css build\\css /E /I /Y 2>nul || cp -r css build/ 2>nul || true && xcopy js build\\js /E /I /Y 2>nul || cp -r js build/ 2>nul || true && xcopy images build\\images /E /I /Y 2>nul || cp -r images build/ 2>nul || true && copy web.config build 2>nul || cp web.config build 2>nul || true",
+    "dev": "echo 'Open index.html in your browser'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
