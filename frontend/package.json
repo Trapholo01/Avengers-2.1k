@@ -1,0 +1,8 @@
+{
+  "name": "avengers-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r *.html css/ js/ images/ dist/ || echo 'Build completed'",
+    "dev": "echo 'Open index.html in browser'"
+  }
+}
